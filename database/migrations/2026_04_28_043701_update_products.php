@@ -11,15 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('category_id')->constrained()->onDelete('cascade');
-            $table->string('name');
-            $table->bigInteger('price');
-            $table->integer('stock');
+         Schema::table('products', function (Blueprint $table) {
+            $table->bigInteger('price')->change();
             $table->text('description')->nullable();
             $table->enum('status', ['tersedia','habis'])->default('tersedia');  
-            $table->timestamps();
         });
     }
 
@@ -28,6 +23,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::table('products', function (Blueprint $table) {
+            $table->integer('price')->change();
+            $table->dropColumn('description');
+            $table->dropColumn('status');
+        });
     }
 };
