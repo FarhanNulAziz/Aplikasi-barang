@@ -18,10 +18,10 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         return [
+            'category_id' => \App\Models\Category::pluck('id')->random(),
             'name' => fake()->word(),
             'price' => fake()->numberBetween(10000, 1000000),
-            'stock' => fake()->numberBetween(1, 100),
-            'category_id' => \App\Models\Category::inRandomOrder()->first()->id
+            'stock' => fake()->numberBetween(1, 100),  
         ];
     }
 }

@@ -3,7 +3,7 @@
 @section('content')
 <h1 style="text-align: center;">Daftar Barang Inventaris</h1>
 
-<a href="/insert" class="btn btn-success mb-3 rounded-0">Tambah Data</a>
+<a href="/create-product" class="btn btn-success mb-3 rounded-0">Tambah Data</a>
 
 <table class="table table-bordered table-hover align-middle">
     <thead class="table-dark">
