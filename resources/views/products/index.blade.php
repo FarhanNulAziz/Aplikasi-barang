@@ -15,6 +15,7 @@
             <th style="width: 8%">Stok</th>
             <th style="width: 35%">Deskripsi</th>
             <th style="width: 13%">Status</th>
+            <th style="width: 15%">Aksi</th>
         </tr>
     </thead>
 
@@ -34,12 +35,18 @@
                 </span>
             </td>
             <td class="text-center">
-                @if ($p->status == 'tersedia')
-                    <span class="badge bg-success rounded-0">Tersedia</span>
-                @else
-                    <span class="badge bg-danger rounded-0">Habis</span>
-                @endif
-            </td>
+    @if ($p->status == 'tersedia')
+        <span class="badge bg-success rounded-0">Tersedia</span>
+    @else
+        <span class="badge bg-danger rounded-0">Habis</span>
+    @endif
+</td>
+
+<td class="text-center">
+    <a href="{{ route('products.edit', $p->id) }}" class="btn btn-warning btn-sm rounded-0">
+        Edit
+    </a>
+</td>
         </tr>
         @endforeach
     </tbody>
